@@ -52,6 +52,7 @@ jobs:
         run:
           ./mq generate --gh-token=${{ secrets.GH_TOKEN }} --trunk-token=${{ steps.get-trunk-token.outputs.token }}
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           TRUNK_TOKEN: ${{ steps.get-trunk-token.outputs.token }}
 
       - name: run mq
@@ -60,4 +61,5 @@ jobs:
         run:
           ./mq housekeeping --gh-token=${{ secrets.GH_TOKEN }} --trunk-token=${{ steps.get-trunk-token.outputs.token }}
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           TRUNK_TOKEN: ${{ steps.get-trunk-token.outputs.token }}
