@@ -3,8 +3,8 @@ name: PR Factory
 on:
   workflow_dispatch: {}
   # Comment the following cron schedule to stop running this workflow every 30 minutes
-  schedule:
-    - cron: 0/30 * * * *
+  # schedule:
+  #   - cron: 0/30 * * * *
 
 permissions:
   pull-requests: write
@@ -50,16 +50,16 @@ jobs:
       - name: run mq
         id: edits
         run:
-          ./mq generate --gh-token=${{ secrets.GH_TOKEN }} --trunk-token=${{ steps.get-trunk-token.outputs.token }}
+          ./mq generate --gh-token=${{ secrets.GH_TOKEN }} --trunk-token=${{ secrets.TRUNK_TOKEN }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          TRUNK_TOKEN: ${{ steps.get-trunk-token.outputs.token }}
+          TRUNK_TOKEN: ${{ secrets.TRUNK_TOKEN }}
 
       - name: run mq
         if: always()
         id: clean
         run:
-          ./mq housekeeping --gh-token=${{ secrets.GH_TOKEN }} --trunk-token=${{ steps.get-trunk-token.outputs.token }}
+          ./mq housekeeping --gh-token=${{ secrets.GH_TOKEN }} --trunk-token=${{ secrets.TRUNK_TOKEN }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          TRUNK_TOKEN: ${{ steps.get-trunk-token.outputs.token }}
+          TRUNK_TOKEN: ${{ secrets.TRUNK_TOKEN }}
