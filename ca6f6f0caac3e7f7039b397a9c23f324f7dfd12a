@@ -1,0 +1,23 @@
+.github/workflows/factory.yaml
+  baa10b612df0ef97 55,64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.6",
+  "base_commit_sha": "ca6f6f0caac3e7f7039b397a9c23f324f7dfd12a",
+  "prompts": {
+    "baa10b612df0ef97": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "19ed7f61-ab75-47e9-98d7-ef8f6ff974a7",
+        "model": "default"
+      },
+      "human_author": "Andrew Tavares",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
